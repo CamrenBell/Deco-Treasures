@@ -1,0 +1,9 @@
+<h1>Search results</h1>
+
+<ul>
+    {% for item in item_list %}
+    <li>
+        <a href="{% url 'item_detail' item_id=item.id %}">{{item.id}}: {{ item.description }}</a>
+    </li>
+    {% endfor %}
+</ul>
