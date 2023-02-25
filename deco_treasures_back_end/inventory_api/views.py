@@ -17,7 +17,7 @@ class InventoryView(APIView):
         else:
             data = Item.objects.all()
             serializer = ItemSerializer(data, many=True)
-        return Response({"result": serializer.data})
+        return Response({"result": serializer.data}, headers={'Access-Control-Allow-Origin': '*'})
 
     def post(self, request):
         item = request.data

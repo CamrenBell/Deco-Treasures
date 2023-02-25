@@ -56,6 +56,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CORS_ALLOW_ALL_ORIGINS = False
+
 ROOT_URLCONF = 'deco_treasures.urls'
 
 TEMPLATES = [
@@ -132,7 +134,7 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Allow all CORS 
-CORS_ALLOW_ALL_ORIGINS = True
+
 
 
 
