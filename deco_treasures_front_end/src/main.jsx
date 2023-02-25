@@ -16,13 +16,14 @@ const router = createBrowserRouter([
     element: <Root/>,
   },
   {
-    path: "/inventory",
+    path: "inventory",
     element: <InventoryPage/>,
   },
   {
-    path: "/inventory/:itemID",
+    path: "inventory/:itemID",
     element: <ItemPage/>,
   },
+  
 ]);
 
 
