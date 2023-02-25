@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import React, {useState, useEffect} from 'react';
+import NavBar from '../components/nav_bar/NavBar';
 
 export default function ItemPage() {
 
@@ -15,13 +16,25 @@ export default function ItemPage() {
     
     if(data.result == null){
       return(
-        <div></div>
+        <div>
+          <NavBar/>
+        </div>
       )
     }
     return (
-        <div>
-          <h1>Deco Treasures</h1>
-          <p>{data.result.description}</p>
+        <div style={{textAlign:'left'}}>
+          <NavBar/>
+          <p>Item: {data.result.description}</p>
+          <p>Purchase Price: ${data.result.purchase_price}</p>
+          <p>Sold Price: ${data.result.sold_price}</p>
+          <p>Tax: ${data.result.tax}</p>
+          <p>Shipping Cost: ${data.result.shipping_cost}</p>
+          <p>Profit: ${data.result.profit}</p>
+          <p>Amount Due to Customer: ${data.result.amount_due_to_customer}</p>
+          <p>Net Profit: ${data.result.net_profit}</p>
+          <p>ROI: {data.result.roi}</p>
+          <p>Date Sold: {data.result.date_sold}</p>
+          <p>Notes: {data.result.notes}</p>
         </div>
     );
   }
