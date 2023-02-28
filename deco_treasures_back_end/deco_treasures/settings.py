@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,7 +41,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'inventory',
     'inventory_api',
-
 ]
 
 MIDDLEWARE = [
@@ -57,8 +55,6 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
-
-
 
 ROOT_URLCONF = 'deco_treasures.urls'
 

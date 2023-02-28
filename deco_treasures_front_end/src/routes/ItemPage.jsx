@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import React, {useState, useEffect} from 'react';
 import NavBar from '../components/nav_bar/NavBar';
+import EditItemButton from '../components/nav_bar/EditItemButton';
 
 export default function ItemPage() {
 
@@ -35,6 +36,7 @@ export default function ItemPage() {
           <p>ROI: {data.result.roi}</p>
           <p>Date Sold: {data.result.date_sold}</p>
           <p>Notes: {data.result.notes}</p>
+          <EditItemButton/>
         </div>
     );
   }
