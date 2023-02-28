@@ -1,6 +1,9 @@
 import axios from "axios";
+import React from 'react'
+import  { useNavigate  } from 'react-router-dom'
 
 export default function NewItemForm(){
+    const navigate = useNavigate();
 
     const handleSubmit= (e) => {
         e.preventDefault();
@@ -20,6 +23,7 @@ export default function NewItemForm(){
             data['date_sold']=e.target['date_sold'].value
         }
         sendData(data)
+        
     }
         
 
@@ -28,6 +32,8 @@ export default function NewItemForm(){
         .then(res => {
             console.log(res);
             console.log(res.data);
+            navigate('/inventory/')
+            
       })
 
       }
@@ -77,7 +83,7 @@ export default function NewItemForm(){
             </label>
             <label>
                 Notes:
-                <input type={'text'} name='notes' value='null'/><br/>
+                <input type={'text'} name='notes'/><br/>
             </label>
             <input type='submit' value={'Submit'}></input>
         </form>

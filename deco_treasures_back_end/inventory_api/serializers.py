@@ -50,7 +50,6 @@ class ItemSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
         fields = '__all__'
         
     def create(self, validated_data):
-        print("POST is HERE")
         ebay_listing_exists = False
         poshmark_listing_exists = False
         amazon_listing_exists = False
