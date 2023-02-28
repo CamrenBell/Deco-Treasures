@@ -9,6 +9,7 @@ import './index.css'
 import Root from './routes/root';
 import ItemPage from './routes/ItemPage';
 import InventoryPage from './routes/InventoryPage';
+import NewItemPage from './routes/NewItemPage';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
     path: "inventory/:itemID",
     element: <ItemPage/>,
   },
+  {
+    path: "inventory/new",
+    element: <NewItemPage/>
+  }
   
 ]);
 

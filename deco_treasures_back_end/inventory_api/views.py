@@ -11,6 +11,7 @@ from .models import Item
 class InventoryView(APIView):
 
     def get(self, request, item_id=None):
+        print("TESSSSSSSSSST")
         if item_id:  
             data = Item.objects.get(id=item_id)
             serializer = ItemSerializer(data)
@@ -24,7 +25,7 @@ class InventoryView(APIView):
         serializer = ItemSerializer(data=item)
         if serializer.is_valid(raise_exception=True):
             item_saved = serializer.save()
-        return Response({"result": f"Item {item_saved.description}"})
+        return Response({"result": f"Item {item_saved.description}"}, headers={'Access-Control-Allow-Origin': '*'})
 
     def put(self, request, item_id):
         saved_item = get_object_or_404(Item.objects.all(), id=item_id)
@@ -33,9 +34,17 @@ class InventoryView(APIView):
         #The .is_valid() method takes an optional raise_exception flag that will cause it to raise a serializers.ValidationError exception if there are validation errors.
         if serializer.is_valid(raise_exception=True):#
             saved_item = serializer.save()
-        return Response({"result": f"{saved_item.description} updated"})
+        return Response({"result": f"{saved_item.description} updated"}, headers={'Access-Control-Allow-Origin': '*'})
 
     def delete(self, request, item_id):
         item = get_object_or_404(Item.objects.all(), id=item_id)
         item.delete()
-        return Response({"result": f"Item id {item_id} deleted"},status=204)
+        return Response({"result": f"Item id {item_id} deleted"},status=204, headers={'Access-Control-Allow-Origin': '*'})
+
+class TestVeiw(APIView):
+    def get(self, request, item_id=None):
+        return Response({"result": 'TEST GET'}, headers={'Access-Control-Allow-Origin': '*'})
+
+    def post(self, request):
+        print(request.data)
+        return Response({"result": 'TEST POST'}, headers={'Access-Control-Allow-Origin': '*'})

@@ -2,16 +2,16 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavBar from '../components/nav_bar/NavBar';
 import ItemList from '../components/nav_bar/ItemLink';
+import axios from "axios";
 
 export default function InventoryPage() {
 
   const [data, setData] = useState(1);
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/inventory_api/`)
-      .then(response => response.json())
-      .then(json => setData(json))
-  },[]);
+    axios.get(`http://127.0.0.1:8000/inventory_api/`)
+      .then(response => setData(response.data))
+    },[]);
 
 
     if(data.result ==null){
@@ -22,8 +22,6 @@ export default function InventoryPage() {
         </div>
       )
     }
-    console.log(typeof data.result)
-    console.log(data.result)
     return (
       <div>
         <NavBar/>
