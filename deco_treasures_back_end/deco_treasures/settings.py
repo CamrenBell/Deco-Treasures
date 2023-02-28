@@ -58,6 +58,8 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS : True
 
+
+
 ROOT_URLCONF = 'deco_treasures.urls'
 
 TEMPLATES = [

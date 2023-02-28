@@ -11,21 +11,20 @@ from .models import Item
 class InventoryView(APIView):
 
     def get(self, request, item_id=None):
-        print("TESSSSSSSSSST")
         if item_id:  
             data = Item.objects.get(id=item_id)
             serializer = ItemSerializer(data)
         else:
             data = Item.objects.all()
             serializer = ItemSerializer(data, many=True)
-        return Response({"result": serializer.data}, headers={'Access-Control-Allow-Origin': '*'})
+        return Response({"result": serializer.data}, headers={'Access-Control-Allow-Origin': '*',"CUSTOM":"CUSTOM"})
 
     def post(self, request):
         item = request.data
         serializer = ItemSerializer(data=item)
         if serializer.is_valid(raise_exception=True):
             item_saved = serializer.save()
-        return Response({"result": f"Item {item_saved.description}"}, headers={'Access-Control-Allow-Origin': '*'})
+        return Response({"result": f"Item {item_saved.description}"}, headers={'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': '*'})
 
     def put(self, request, item_id):
         saved_item = get_object_or_404(Item.objects.all(), id=item_id)
@@ -41,10 +40,5 @@ class InventoryView(APIView):
         item.delete()
         return Response({"result": f"Item id {item_id} deleted"},status=204, headers={'Access-Control-Allow-Origin': '*'})
 
-class TestVeiw(APIView):
-    def get(self, request, item_id=None):
-        return Response({"result": 'TEST GET'}, headers={'Access-Control-Allow-Origin': '*'})
-
-    def post(self, request):
-        print(request.data)
-        return Response({"result": 'TEST POST'}, headers={'Access-Control-Allow-Origin': '*'})
+    def options(self, request):
+        return Response(headers={'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': '*'})

@@ -23,7 +23,9 @@ export default function NewItemForm(){
         
 
       const sendData= (data)=>{
-        axios.post(`http://127.0.0.1:8000/inventory_api/`, { data })
+        axios.post(`http://127.0.0.1:8000/inventory_api/`, 
+        { "description": "PLEASE WORK!!!",
+        "purchase_price": "69.69", })
         .then(res => {
             console.log(res);
             console.log(res.data);
