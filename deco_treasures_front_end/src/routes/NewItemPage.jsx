@@ -1,5 +1,5 @@
 import NavBar from '../components/nav_bar/NavBar';
-import NewItemForm from '../components/nav_bar/NewItemForm';
+import NewItemForm from '../components/NewItemForm';
 
 export default function NewItemPage() {
 

@@ -1,5 +1,5 @@
 import React, {use} from "react";
-import '../../style/InventoryPage.css'
+import '../style/InventoryPage.css'
 export default function ItemList(value) {
     console.log(value)
     return(
