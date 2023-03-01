@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import React, {useState, useEffect} from 'react';
 import NavBar from '../components/nav_bar/NavBar';
 import axios from "axios";
@@ -9,6 +9,7 @@ export default function ItemPage() {
     const [data, setData] = useState();
     const [tmpData, setTmpData] = useState();
     const [changed, setChanged] = useState(false);
+    const navigate = useNavigate();
     
 
     useEffect(() => {
@@ -27,6 +28,14 @@ export default function ItemPage() {
     })
   }
 
+  function delteItem(){
+    axios.delete(`http://127.0.0.1:8000/inventory_api/${itemID}`)
+    .then(res => {
+      console.log(res);
+      console.log(res.data);
+      navigate('/inventory/')
+    })
+  }
     
     if(data == null){
       return(
@@ -51,6 +60,7 @@ export default function ItemPage() {
           <p>Date Sold: <input type='data' onChange={(e) => {setChanged(true); setTmpData({...tmpData, date_sold: e.target.value})}} value={tmpData.date_sold}/></p>
           <p>Notes: <input type='text' onChange={(e) => {setChanged(true); setTmpData({...tmpData, notes: e.target.value})}} value={tmpData.notes}/></p>
           {changed ? <><button onClick={(e)=>{setTmpData({...data})}}>Cancel</button><button onClick={updateItem}>Save</button></>  : null}
+          <button onClick={delteItem}>Delete Item</button>
         </div>
     );
   }

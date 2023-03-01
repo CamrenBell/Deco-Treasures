@@ -33,7 +33,6 @@ export default function NewItemForm(){
             console.log(res);
             console.log(res.data);
             navigate('/inventory/')
-            
       })
 
       }
