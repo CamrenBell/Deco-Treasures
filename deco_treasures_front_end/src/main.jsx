@@ -11,6 +11,7 @@ import ItemPage from './routes/ItemPage';
 import InventoryPage from './routes/InventoryPage';
 import NewItemPage from './routes/NewItemPage';
 import EbayList from './routes/Ebaylist';
+import AmazonList from './routes/AmazonList';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "inventory/ebay",
     element: <EbayList/>
+  },
+  {
+    path: "inventory/amazon",
+    element: <AmazonList/>
   }
   
 ]);

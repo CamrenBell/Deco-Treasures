@@ -46,3 +46,9 @@ class EbayView(APIView):
         serializer = ItemSerializer(data, many=True)
         return Response({"result": serializer.data})
 
+class AmazonView(APIView):
+    def get(self, request):
+        data = Item.objects.exclude(amazon_listing__isnull=True)
+        serializer = ItemSerializer(data, many=True)
+        return Response({"result": serializer.data})
+

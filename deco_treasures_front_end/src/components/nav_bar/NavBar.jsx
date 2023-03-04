@@ -11,6 +11,7 @@ export default function NavBar(){
             <div class="dropdown-content">
                 <a href="http://127.0.0.1:5173/inventory">All</a>
                 <a href="http://127.0.0.1:5173/inventory/ebay">Ebay</a>
+                <a href="http://127.0.0.1:5173/inventory/amazon">Amazon</a>
             </div>
         </div>
         <div class="dropdown">
