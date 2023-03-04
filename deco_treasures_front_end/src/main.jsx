@@ -10,6 +10,7 @@ import Root from './routes/root';
 import ItemPage from './routes/ItemPage';
 import InventoryPage from './routes/InventoryPage';
 import NewItemPage from './routes/NewItemPage';
+import EbayList from './routes/Ebaylist';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "inventory/new",
     element: <NewItemPage/>
+  },
+  {
+    path: "inventory/ebay",
+    element: <EbayList/>
   }
   
 ]);

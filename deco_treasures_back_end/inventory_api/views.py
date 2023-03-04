@@ -39,3 +39,10 @@ class InventoryView(APIView):
         item = get_object_or_404(Item.objects.all(), id=item_id)
         item.delete()
         return Response({"result": f"Item id {item_id} deleted"},status=204)
+
+class EbayView(APIView):
+    def get(self, request):
+        data = Item.objects.exclude(ebay_listing__isnull=True)
+        serializer = ItemSerializer(data, many=True)
+        return Response({"result": serializer.data})
+

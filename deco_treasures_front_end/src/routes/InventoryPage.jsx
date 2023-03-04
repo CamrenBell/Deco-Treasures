@@ -14,7 +14,7 @@ export default function InventoryPage() {
     },[]);
 
 
-    if(data.result ==null){
+    if(data.result == null){
       return(
         <div>
           <h1>Deco Treasures</h1>

@@ -1,7 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import React, {useState, useEffect} from 'react';
 import NavBar from '../components/nav_bar/NavBar';
-import ListingBox from '../components/ListingBox';
 import '../style/listingGrid.css'
 import axios from "axios";
 
@@ -42,7 +41,6 @@ export default function ItemPage() {
   const [changed, setChanged] = useState(false);
   const navigate = useNavigate();
     
-
   useEffect(() => {
     axios.get(`http://127.0.0.1:8000/inventory_api/${itemID}`)
       .then(response => {
@@ -63,10 +61,22 @@ export default function ItemPage() {
   },[]);
 
   function updateItem(){
-    tmpData['ebay_listing'] = tmpEbayListing
-    tmpData['amazon_listing'] = tmpAmazonListing
-    tmpData['poshmark_listing'] = tmpPoshmarkListing
-    tmpData['mercari_listing'] = tmpMercariListing
+    if(tmpEbayListing['order_id'] != null){
+      tmpData['ebay_listing'] = tmpEbayListing
+    }else{tmpData['ebay_listing'] = null}
+    if(tmpAmazonListing['order_id'] != null){
+      tmpData['amazon_listing'] = tmpAmazonListing
+    }else{tmpData['amazon_listing'] = null}
+    if(tmpPoshmarkListing['order_id'] != null){
+      tmpData['poshmark_listing'] = tmpPoshmarkListing
+    }else{tmpData['poshmark_listing'] = null}
+    if(tmpMercariListing['order_id'] != null){
+      tmpData['mercari_listing'] = tmpMercariListing
+    }else{tmpData['mercari_listing'] = null}
+    
+    
+    
+    
     axios.put(`http://127.0.0.1:8000/inventory_api/${itemID}`, tmpData)
     .then(res => {
       console.log(res);
@@ -103,7 +113,7 @@ export default function ItemPage() {
       <p>Amount Due to Customer: $<input type='number' onChange={(e) => {setChanged(true); setTmpData({...tmpData, amount_due_to_customer: e.target.value})}} value={tmpData.amount_due_to_customer}/></p>
       <p>Net Profit: $<input type='number' onChange={(e) => {setChanged(true); setTmpData({...tmpData, net_profit: e.target.value})}} value={tmpData.net_profit}/></p>
       <p>ROI: <input type='number' onChange={(e) => {setChanged(true); setTmpData({...tmpData, roi: e.target.value})}} value={tmpData.roi}/></p>
-      <p>Date Sold: <input type='data' onChange={(e) => {setChanged(true); setTmpData({...tmpData, date_sold: e.target.value})}} value={tmpData.date_sold}/></p>
+      <p>Date Sold: <input type='date' onChange={(e) => {setChanged(true); setTmpData({...tmpData, date_sold: e.target.value})}} value={tmpData.date_sold}/></p>
       <p>Notes: <input type='text' onChange={(e) => {setChanged(true); setTmpData({...tmpData, notes: e.target.value})}} value={tmpData.notes}/></p>
       {changed ? <><button onClick={(e)=>{setTmpData({...data})}}>Cancel</button><button onClick={updateItem}>Save</button></>  : null}
       <button onClick={delteItem}>Delete Item</button>
