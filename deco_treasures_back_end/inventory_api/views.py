@@ -52,3 +52,14 @@ class AmazonView(APIView):
         serializer = ItemSerializer(data, many=True)
         return Response({"result": serializer.data})
 
+class PoshmarkView(APIView):
+    def get(self, request):
+        data = Item.objects.exclude(poshmark_listing__isnull=True)
+        serializer = ItemSerializer(data, many=True)
+        return Response({"result": serializer.data})
+
+class MercariView(APIView):
+    def get(self, request):
+        data = Item.objects.exclude(mercari_listing__isnull=True)
+        serializer = ItemSerializer(data, many=True)
+        return Response({"result": serializer.data})

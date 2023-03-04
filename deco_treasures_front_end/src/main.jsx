@@ -12,6 +12,8 @@ import InventoryPage from './routes/InventoryPage';
 import NewItemPage from './routes/NewItemPage';
 import EbayList from './routes/Ebaylist';
 import AmazonList from './routes/AmazonList';
+import PoshmarkList from './routes/PoshmarkList';
+import MercariList from './routes/MercariList';
 
 const router = createBrowserRouter([
   {
@@ -37,10 +39,17 @@ const router = createBrowserRouter([
   {
     path: "inventory/amazon",
     element: <AmazonList/>
+  },
+  {
+    path: "inventory/poshmark",
+    element: <PoshmarkList/>
+  },
+  {
+    path: "inventory/mercari",
+    element: <MercariList/>
   }
   
 ]);
-
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
