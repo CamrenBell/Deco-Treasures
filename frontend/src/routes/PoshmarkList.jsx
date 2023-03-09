@@ -9,7 +9,7 @@ export default function PoshmarkList() {
     const base_url = process.env.REACT_APP_BASE_URL
 
     useEffect(() => {
-      axios.get(`http://18.220.247.14/inventory_api/poshmark`)
+      axios.get(`http://18.220.241.77/inventory_api/poshmark`)
         .then(response => setData(response.data))
       },[]);
   

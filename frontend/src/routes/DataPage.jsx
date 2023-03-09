@@ -18,7 +18,7 @@ export default function DatePage(){
 
     function fetchItems(month){
         console.log(month)
-        axios.get(`http://18.220.247.14/inventory_api/data/${month}`)
+        axios.get(`http://18.220.241.77/inventory_api/data/${month}`)
         .then(response => setData(response.data))
     }
 

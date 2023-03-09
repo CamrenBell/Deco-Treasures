@@ -29,7 +29,7 @@ export default function NewItemForm(){
         
 
       const sendData= (data)=>{
-        axios.post(`http://18.220.247.14/inventory_api/`, data)
+        axios.post(`http://18.220.241.77/inventory_api/`, data)
         .then(res => {
             console.log(res);
             console.log(res.data);

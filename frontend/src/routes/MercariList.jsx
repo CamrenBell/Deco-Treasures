@@ -9,7 +9,7 @@ export default function MercariList() {
     const base_url = process.env.REACT_APP_BASE_URL
 
     useEffect(() => {
-      axios.get(`http://18.220.247.14/inventory_api/mercari`)
+      axios.get(`http://18.220.241.77/inventory_api/mercari`)
         .then(response => setData(response.data))
       },[]);
   

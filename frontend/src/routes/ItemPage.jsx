@@ -43,7 +43,7 @@ export default function ItemPage() {
   const navigate = useNavigate();
     
   useEffect(() => {
-    axios.get(`http://18.220.247.14/inventory_api/${itemID}`)
+    axios.get(`http://18.220.241.77/inventory_api/${itemID}`)
       .then(response => {
         setData(response.data.result)
         setTmpData(response.data.result)
@@ -78,7 +78,7 @@ export default function ItemPage() {
     
     
     
-    axios.put(`http://18.220.247.14/inventory_api/${itemID}`, tmpData)
+    axios.put(`http://18.220.241.77/inventory_api/${itemID}`, tmpData)
     .then(res => {
       console.log(res);
       console.log(res.data);
@@ -86,7 +86,7 @@ export default function ItemPage() {
   }
 
   function delteItem(){
-    axios.delete(`http://18.220.247.14/inventory_api/${itemID}`)
+    axios.delete(`http://18.220.241.77/inventory_api/${itemID}`)
     .then(res => {
       console.log(res);
       console.log(res.data);

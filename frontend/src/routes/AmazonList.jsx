@@ -10,7 +10,7 @@ export default function AmazonList() {
     const base_url = process.env.REACT_APP_BASE_URL
   
     useEffect(() => {
-      axios.get(`http://18.220.247.14/inventory_api/amazon`)
+      axios.get(`http://18.220.241.77/inventory_api/amazon`)
         .then(response => setData(response.data))
       },[]);
   
