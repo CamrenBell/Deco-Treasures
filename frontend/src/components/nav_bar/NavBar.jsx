@@ -17,7 +17,7 @@ export default function NavBar(){
                 <a href={`http://127.0.0.1:5173/inventory/mercari`}>Mercari</a>
             </div>
         </div>
-        <a style={{float: 'right'}} href={`http://http://127.0.0.1:5173//inventory/new`}>New Item</a>
+        <a style={{float: 'right'}} href={`http://127.0.0.1:5173/inventory/new`}>New Item</a>
         </div>
     )
 }
