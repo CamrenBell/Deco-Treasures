@@ -7,10 +7,10 @@ import axios from "axios";
 export default function EbayList() {
 
     const [data, setData] = useState(1);
-    const base_url = process.env.REACT_APP_BASE_URL
+    // const base_url = process.env.REACT_APP_BASE_URL
   
     useEffect(() => {
-      axios.get(`http://18.220.241.77/inventory_api/ebay`)
+      axios.get(`http://127.0.0.1:8000/inventory_api/ebay`)
         .then(response => setData(response.data))
       },[]);
   
@@ -18,6 +18,7 @@ export default function EbayList() {
       if(data.result == null){
         return(
           <div>
+            <NavBar/>
             <h1>Deco Treasures</h1>
             <p>InventoryPage</p>
           </div>

@@ -7,10 +7,10 @@ import axios from "axios";
 export default function InventoryPage() {
 
   const [data, setData] = useState(1);
-  const base_url = process.env.REACT_APP_BASE_URL
+  // const base_url = process.env.REACT_APP_BASE_URL
 
   useEffect(() => {
-    axios.get(`http://18.220.241.77/inventory_api/`)
+    axios.get(`http://127.0.0.1:8000/inventory_api/`)
       .then(response => setData(response.data))
     },[]);
 
@@ -18,6 +18,7 @@ export default function InventoryPage() {
     if(data.result == null){
       return(
         <div>
+          <NavBar/>
           <h1>Deco Treasures</h1>
           <p>InventoryPage</p>
         </div>

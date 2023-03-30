@@ -5,7 +5,7 @@ export default function DatePage(){
     
     const [month, setMonth] = useState();
     const [data, setData] = useState(1);
-    const base_url = process.env.REACT_APP_BASE_URL
+    // const base_url = process.env.REACT_APP_BASE_URL
 
     useEffect(() => {
         const d = new Date();
@@ -18,7 +18,7 @@ export default function DatePage(){
 
     function fetchItems(month){
         console.log(month)
-        axios.get(`http://18.220.241.77/inventory_api/data/${month}`)
+        axios.get(`http://127.0.0.1:8000/inventory_api/data/${month}`)
         .then(response => setData(response.data))
     }
 

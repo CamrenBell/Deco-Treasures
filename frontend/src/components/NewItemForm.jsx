@@ -4,7 +4,7 @@ import  { useNavigate  } from 'react-router-dom'
 
 export default function NewItemForm(){
     const navigate = useNavigate();
-    const base_url = process.env.REACT_APP_BASE_URL
+    // const base_url = process.env.REACT_APP_BASE_URL
 
     const handleSubmit= (e) => {
         e.preventDefault();
@@ -29,7 +29,7 @@ export default function NewItemForm(){
         
 
       const sendData= (data)=>{
-        axios.post(`http://18.220.241.77/inventory_api/`, data)
+        axios.post(`http://127.0.0.1:8000/inventory_api/`, data)
         .then(res => {
             console.log(res);
             console.log(res.data);

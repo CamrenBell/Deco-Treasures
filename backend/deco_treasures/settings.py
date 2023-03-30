@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     "corsheaders",
     'django_extensions',
     'rest_framework',
-    'inventory',
     'inventory_api',
 ]
 
@@ -134,6 +133,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_REPLACE_HTTPS_REFERER = True
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+#SECRET_KEY = os.getenv("SECRET_KEY")
 
 DEBUG = True if os.getenv("DEBUG") == "True" else "False"

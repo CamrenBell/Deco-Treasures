@@ -7,7 +7,7 @@ import axios from "axios";
 export default function ItemPage() {
 
   let { itemID } = useParams();
-  const base_url = process.env.REACT_APP_BASE_URL
+  // const base_url = process.env.REACT_APP_BASE_URL
   const [data, setData] = useState();
   const [tmpData, setTmpData] = useState();
   const [tmpEbayListing, setTmpEbayListing] = useState({
@@ -43,7 +43,7 @@ export default function ItemPage() {
   const navigate = useNavigate();
     
   useEffect(() => {
-    axios.get(`http://18.220.241.77/inventory_api/${itemID}`)
+    axios.get(`http://127.0.0.1:8000/inventory_api/${itemID}`)
       .then(response => {
         setData(response.data.result)
         setTmpData(response.data.result)
@@ -78,7 +78,7 @@ export default function ItemPage() {
     
     
     
-    axios.put(`http://18.220.241.77/inventory_api/${itemID}`, tmpData)
+    axios.put(`http://127.0.0.1:8000/inventory_api/${itemID}`, tmpData)
     .then(res => {
       console.log(res);
       console.log(res.data);
@@ -86,7 +86,7 @@ export default function ItemPage() {
   }
 
   function delteItem(){
-    axios.delete(`http://18.220.241.77/inventory_api/${itemID}`)
+    axios.delete(`http://127.0.0.1:8000/inventory_api/${itemID}`)
     .then(res => {
       console.log(res);
       console.log(res.data);
