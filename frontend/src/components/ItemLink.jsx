@@ -6,7 +6,7 @@ export default function ItemList(value) {
         <div>
             <ul>
                 <li>
-                    <a href={`http://18.220.241.77/inventory/${value.value.id}`} >{value.value.id}: {value.value.description}</a>
+                    <a href={`http://127.0.0.1:5173/inventory/${value.value.id}`} >{value.value.id}: {value.value.description}</a>
                 </li>
             </ul>
         </div>
